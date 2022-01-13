@@ -1,0 +1,33 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "ventas",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "cosmosDBMessage",
+      "type": "cosmosDB",
+      "databaseName": "chat",
+      "collectionName": "ventas",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmosDBConnectionString",
+      "direction": "out"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "ventas",
+      "direction": "out"
+  }
+  ]
+}

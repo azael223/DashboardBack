@@ -1,0 +1,28 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "ventas",
+      "methods": ["get"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "ventas",
+      "type": "cosmosDB",
+      "databaseName": "chat",
+      "collectionName": "ventas",
+      "createIfNotExists": true,
+      "sqlQuery": "select * from c",
+      "connectionStringSetting": "CosmosDBConnectionString",
+      "direction": "in"
+    }
+  ]
+}
